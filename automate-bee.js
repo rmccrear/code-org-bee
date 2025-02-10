@@ -1,5 +1,5 @@
-export function automateBee() {
-  alert("edit auto-bee.js to automate bee.");
+function automateBee() {
+  alert("edit automate-bee.js to automate bee.");
   // Use the following functions to control the bee:
   // turnLeft() - Turns the bee 90 degrees to the left
   // turnRight() - Turns the bee 90 degrees to the right
