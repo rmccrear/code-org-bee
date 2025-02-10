@@ -156,11 +156,6 @@ function randomizeLine() {
   updateBeePosition();
 }
 
-function automateBee() {
-  alert("change me!");
-  // 
-}
-
 function atFlower() {
   const beeCell = board.children[beePosition.y * 8 + beePosition.x];
   const backgroundImg = beeCell.querySelector('.background');
