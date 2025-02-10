@@ -173,5 +173,5 @@ function atHoneycomb() {
   return backgroundImg && backgroundImg.src.includes('img/honeycomb.svg');
 }
 
-document.addEventListener('keydown', (event) => moveBee(event.key));
+// document.addEventListener('keydown', (event) => moveBee(event.key));
 createBoard();
