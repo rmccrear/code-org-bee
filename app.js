@@ -19,7 +19,7 @@ function createBoard() {
           sprite = sprites[Math.floor(Math.random() * sprites.length)];
         }
         const img = document.createElement('img');
-        img.src = `img/${sprite}.svg`;
+        img.src = `img/${sprite}.webp`;
         img.classList.add('background');
         cell.appendChild(img);
         if (sprite === 'flower' || sprite === 'honeycomb') {
@@ -31,7 +31,7 @@ function createBoard() {
       } else {
         const backgroundSprite = backgroundSprites[Math.floor(Math.random() * backgroundSprites.length)];
         const img = document.createElement('img');
-        img.src = `img/${backgroundSprite}.svg`;
+        img.src = `img/${backgroundSprite}.webp`;
         img.classList.add('background');
         cell.appendChild(img);
       }
@@ -48,7 +48,7 @@ function updateBeePosition() {
     if (beeImg) cell.removeChild(beeImg);
   });
   const beeImg = document.createElement('img');
-  beeImg.src = 'img/bee.svg';
+  beeImg.src = 'img/bee.webp';
   beeImg.classList.add('bee');
   if (beeOrientation === 0) {
     beeImg.style.transform = 'scaleX(1)';
@@ -110,7 +110,7 @@ function gatherPollen() {
   const beeCell = board.children[beePosition.y * 8 + beePosition.x];
   const backgroundImg = beeCell.querySelector('.background');
   const label = beeCell.querySelector('.label');
-  if (backgroundImg && backgroundImg.src.includes('img/flower.svg') && label && label.textContent === '1') {
+  if (backgroundImg && backgroundImg.src.includes('img/flower.webp') && label && label.textContent === '1') {
     pollenCollected++;
     label.textContent = '0';
     console.log(`Pollen collected: ${pollenCollected}`);
@@ -123,7 +123,7 @@ function makeHoney() {
   const beeCell = board.children[beePosition.y * 8 + beePosition.x];
   const backgroundImg = beeCell.querySelector('.background');
   const label = beeCell.querySelector('.label');
-  if (backgroundImg && backgroundImg.src.includes('img/honeycomb.svg') && label && label.textContent === '1') {
+  if (backgroundImg && backgroundImg.src.includes('img/honeycomb.webp') && label && label.textContent === '1') {
     honeyMade++;
     label.textContent = '0';
     console.log(`Honey made: ${honeyMade}`);
@@ -143,7 +143,7 @@ function randomizeLine() {
       sprite = sprites[Math.floor(Math.random() * sprites.length)];
     }
     const img = document.createElement('img');
-    img.src = `img/${sprite}.svg`;
+    img.src = `img/${sprite}.webp`;
     img.classList.add('background');
     cell.appendChild(img);
     if (sprite === 'flower' || sprite === 'honeycomb') {
@@ -159,13 +159,13 @@ function randomizeLine() {
 function atFlower() {
   const beeCell = board.children[beePosition.y * 8 + beePosition.x];
   const backgroundImg = beeCell.querySelector('.background');
-  return backgroundImg && backgroundImg.src.includes('img/flower.svg');
+  return backgroundImg && backgroundImg.src.includes('img/flower.webp');
 }
 
 function atHoneycomb() {
   const beeCell = board.children[beePosition.y * 8 + beePosition.x];
   const backgroundImg = beeCell.querySelector('.background');
-  return backgroundImg && backgroundImg.src.includes('img/honeycomb.svg');
+  return backgroundImg && backgroundImg.src.includes('img/honeycomb.webp');
 }
 
 // document.addEventListener('keydown', (event) => moveBee(event.key));
