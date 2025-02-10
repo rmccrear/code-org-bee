@@ -7,23 +7,30 @@
   <style>
     #board {
       display: grid;
-      grid-template-columns: repeat(8, 50px);
-      grid-template-rows: repeat(8, 50px);
+      grid-template-columns: repeat(8, 1fr); /* Use fr units for flexible columns */
+      grid-template-rows: repeat(8, 1fr); /* Use fr units for flexible rows */
       gap: 1px;
+      width: 100%; /* Make the board take up the full width */
+      height: auto; /* Adjust height automatically */
     }
     .cell {
-      width: 50px;
-      height: 50px;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%; /* Maintain 1:1 aspect ratio */
       border: 1px solid darkgray;
       position: relative;
+      overflow: hidden; /* Ensure content stays within the cell */
     }
     .controls {
       margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .controls button {
       margin: 5px;
-      padding: 10px 20px;
-      font-size: 16px;
+      padding: 10px 15px; /* Adjust padding for smaller screens */
+      font-size: 14px; /* Adjust font size for smaller screens */
       background-color: #4CAF50;
       color: white;
       border: none;
@@ -40,6 +47,7 @@
       left: 0;
       width: 100%;
       height: 100%;
+      object-fit: cover; /* Ensure images cover the entire area */
     }
     .bee {
       position: absolute;
@@ -48,28 +56,56 @@
       width: 100%;
       height: 100%;
       z-index: 1;
+      object-fit: contain; /* Ensure bee image fits within the cell */
     }
     .label {
       position: absolute;
       top: 5px;
       left: 5px;
-      font-size: 12px;
+      font-size: 10px; /* Adjust font size for smaller screens */
       font-weight: bold;
       color: red;
       z-index: 3;
+    }
+
+    /* Media query for larger screens */
+    @media (min-width: 600px) {
+      #board {
+        grid-template-columns: repeat(8, 50px); /* Restore fixed size columns */
+        grid-template-rows: repeat(8, 50px); /* Restore fixed size rows */
+        width: auto;
+      }
+      .cell {
+        width: 50px;
+        height: 50px;
+        padding-bottom: 0;
+      }
+      .controls button {
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+      .label {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
 <body>
   <div id="board"></div>
   <div class="controls">
-    <button onclick="turnLeft()">Turn Left</button>
-    <button onclick="turnRight()">Turn Right</button>
-    <button onclick="moveForward()">Move Forward</button>
-    <button onclick="gatherPollen()">Gather Pollen</button>
-    <button onclick="makeHoney()">Make Honey</button>
-    <button onclick="randomizeLine()">Randomize Line</button>
-    <button onclick="automateBee()">Automate Bee</button>
+    <div>
+      <button onclick="turnLeft()">Turn Left</button>
+      <button onclick="turnRight()">Turn Right</button>
+      <button onclick="moveForward()">Move Forward</button>
+    </div>
+    <div>
+      <button onclick="gatherPollen()">Gather Pollen</button>
+      <button onclick="makeHoney()">Make Honey</button>
+    </div>
+    <div>
+      <button onclick="randomizeLine()">Randomize Line</button>
+      <button onclick="automateBee()">Automate Bee</button>
+    </div>
   </div>
   <script src="app.js"></script>
   <script src="automate-bee.js"></script>
