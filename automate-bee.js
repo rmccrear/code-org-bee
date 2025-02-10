@@ -1,13 +1,14 @@
-
-// You can change this function to automate the bee
-// Use the functions turnLeft(), turnRight(), moveForward(), gatherPollen(), and makeHoney()
-// Make use of if and for statements to control the bee
-// Can you get the bee to collect all the pollen and make all its honey?
 function automateBee() {
-  alert("Edit the file automate-bee.js to automate the bee, yourself");
-  // 
-  moveForward();
-  if(atFlower()){
-    gatherPollen();
-  }
+  alert("edit automate-bee.js to automate bee.");
+  // Use the following functions to control the bee:
+  // turnLeft() - Turns the bee 90 degrees to the left
+  // turnRight() - Turns the bee 90 degrees to the right
+  // moveForward() - Moves the bee one step forward in the current direction
+  // gatherPollen() - Collects pollen if the bee is on a flower
+  // makeHoney() - Makes honey if the bee is on a honeycomb
+
+  // Example:
+  // turnRight();
+  // moveForward();
+  // gatherPollen();
 }
