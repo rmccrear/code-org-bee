@@ -6,6 +6,8 @@ let pollenCollected = 0;
 let honeyMade = 0;
 let beeOrientation = 0; // 0: right, 90: down, 180: left, 270: up
 
+import { automateBee } from './auto-bee.js';
+
 function createBoard() {
   for (let i = 0; i < 8; i++) {
     for (let j = 0; j < 8; j++) {
@@ -154,11 +156,6 @@ function randomizeLine() {
     }
   }
   updateBeePosition();
-}
-
-function automateBee() {
-  alert("change me!");
-  // 
 }
 
 document.addEventListener('keydown', (event) => moveBee(event.key));
