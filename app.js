@@ -16,7 +16,7 @@ function createBoard() {
         if (j === 0) {
           sprite = 'grass';
         } else {
-          sprite = sprites[(j - 1) % sprites.length];
+          sprite = sprites[Math.floor(Math.random() * sprites.length)];
         }
         const img = document.createElement('img');
         img.src = `img/${sprite}.svg`;
@@ -140,7 +140,7 @@ function randomizeLine() {
     if (j === 0) {
       sprite = 'grass';
     } else {
-      sprite = sprites[(j - 1) % sprites.length];
+      sprite = sprites[Math.floor(Math.random() * sprites.length)];
     }
     const img = document.createElement('img');
     img.src = `img/${sprite}.svg`;
@@ -159,6 +159,18 @@ function randomizeLine() {
 function automateBee() {
   alert("change me!");
   // 
+}
+
+function atFlower() {
+  const beeCell = board.children[beePosition.y * 8 + beePosition.x];
+  const backgroundImg = beeCell.querySelector('.background');
+  return backgroundImg && backgroundImg.src.includes('img/flower.svg');
+}
+
+function atHoneycomb() {
+  const beeCell = board.children[beePosition.y * 8 + beePosition.x];
+  const backgroundImg = beeCell.querySelector('.background');
+  return backgroundImg && backgroundImg.src.includes('img/honeycomb.svg');
 }
 
 document.addEventListener('keydown', (event) => moveBee(event.key));
